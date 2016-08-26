@@ -20,4 +20,12 @@ class BottomTextFieldDelegate: NSObject, UITextFieldDelegate {
             textField.text = ""
         }
     }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField.text == "" {
+            textField.text = "BOTTOM"
+        }
+    }
+    
+    
 }
