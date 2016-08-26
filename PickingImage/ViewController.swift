@@ -35,14 +35,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topText.textAlignment = .Center
         bottomText.textAlignment = .Center
         
-        
         topText.delegate = topDelefate
         bottomText.delegate = bottomDelegate
         
         bottomText.layer.zPosition = 1
         topText.layer.zPosition = 1
         
-//        let memeTextAttributes = [NSStrokeColorAttributeName: UIColor.whiteColor(), NSForegroundColorAttributeName: UIColor.blackColor(), NSFontAttributeName: UIFont(name:"HelveticaNeue-CondensedBlack", size: 40)!, NSStrokeWidthAttributeName: 2.0]
         
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
