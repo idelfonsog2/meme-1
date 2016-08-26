@@ -38,6 +38,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         topText.delegate = topDelefate
         bottomText.delegate = bottomDelegate
+        
+        bottomText.layer.zPosition = 1
+        topText.layer.zPosition = 1
+        
+//        let memeTextAttributes = [NSStrokeColorAttributeName: UIColor.whiteColor(), NSForegroundColorAttributeName: UIColor.blackColor(), NSFontAttributeName: UIFont(name:"HelveticaNeue-CondensedBlack", size: 40)!, NSStrokeWidthAttributeName: 2.0]
+        
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : -2.0 ]
+
+        topText.defaultTextAttributes = memeTextAttributes
+        bottomText.defaultTextAttributes = memeTextAttributes
     }
 
     @IBAction func pickAnImage(sender: AnyObject) {
