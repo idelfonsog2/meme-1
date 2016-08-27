@@ -90,6 +90,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     //MARK: NSNotification
+    
+    /*One can also create custom notifications using postNotificationName:.*/
     func keyboardWillShow(notification: NSNotification) {
         self.view.frame.origin.y -= getKeyboardHeight(notification)
     }
