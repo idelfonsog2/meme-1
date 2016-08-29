@@ -30,13 +30,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var toolBarNav: UIToolbar!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     @IBOutlet weak var cameraButoon: UIBarButtonItem!
     
     let topDelefate = TopTextFieldDelegate()
     let bottomDelegate = BottomTextFieldDelegate()
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         topText.text = "TOP"
@@ -51,6 +53,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomText.layer.zPosition = 1
         topText.layer.zPosition = 1
         
+        shareButton.enabled = false
         
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -89,11 +92,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
 
+    
+    @IBAction func sharePicture(sender: AnyObject) {
+        
+        let memedImage = self.generatedMemedImage()
+        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        
+        self.presentViewController(controller, animated: true, completion: {self.save()})
+    }
+    
     //ImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
+            shareButton.enabled = true
         }
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -135,14 +149,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //MememedObject
     func save() {
-        let memed = generatedMemedImage()
-        let meme = Meme(text: topText.text!+bottomText.text!, image: imagePickerView.image!, memedImage: memed)
+        let meme = Meme(text: topText.text!+bottomText.text!, image: imagePickerView.image!, memedImage: self.generatedMemedImage())
+        
     }
     
     func generatedMemedImage() -> UIImage {
         
         // TODO: Hide toolbar and navbar  
-        
+        toolBarNav.hidden = true
+        navigationController?.navigationBar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -153,6 +168,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         
         // TODO:  Show toolbar and navbar
+        toolBarNav.hidden = false
+        navigationController?.navigationBar.hidden = false
         
         return memedImage
     }
