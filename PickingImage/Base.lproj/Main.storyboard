@@ -102,6 +102,7 @@
                         <outlet property="bottomText" destination="6I8-ZJ-dmD" id="t2k-b5-U89"/>
                         <outlet property="cameraButoon" destination="MA5-Zf-yfH" id="f2I-Do-OSv"/>
                         <outlet property="imagePickerView" destination="zuC-tW-Oaa" id="aaT-a7-4DI"/>
+                        <outlet property="navigationBarTool" destination="VBA-wA-u8C" id="4wV-gF-Ozl"/>
                         <outlet property="shareButton" destination="FSi-kq-Ovq" id="FZB-NF-t3Z"/>
                         <outlet property="toolBarNav" destination="rwt-VO-yIE" id="wJz-O8-xEP"/>
                         <outlet property="topText" destination="zeZ-L6-U6S" id="jDI-WP-rYj"/>

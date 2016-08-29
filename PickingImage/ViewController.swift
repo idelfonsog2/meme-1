@@ -32,6 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var toolBarNav: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
+    @IBOutlet weak var navigationBarTool: UINavigationBar!
     @IBOutlet weak var cameraButoon: UIBarButtonItem!
     
     let topDelefate = TopTextFieldDelegate()
@@ -153,11 +154,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    func generatedMemedImage() -> UIImage {
-        
+    func generatedMemedImage() -> UIImage
+    {
         // TODO: Hide toolbar and navbar  
         toolBarNav.hidden = true
-        navigationController?.navigationBar.hidden = true
+        navigationBarTool.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
