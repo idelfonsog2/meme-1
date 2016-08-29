@@ -11,11 +11,25 @@ import UIKit
  To be a delegate of the UIImagePickerController your View Controller class will also need to conform to the UINavigationControllerDelegate protocol
  */
 
+struct Meme {
+    var text: String
+    var image: UIImage
+    var memedImage: UIImage
+    
+    init(text: String, image: UIImage, memedImage: UIImage){
+        self.text = text
+        self.image = image
+        self.memedImage = memedImage
+    }
+    
+}
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
+    @IBOutlet weak var toolBarNav: UIToolbar!
     
     @IBOutlet weak var cameraButoon: UIBarButtonItem!
     
@@ -119,8 +133,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
+    //MememedObject
+    func save() {
+        let memed = generatedMemedImage()
+        let meme = Meme(text: topText.text!+bottomText.text!, image: imagePickerView.image!, memedImage: memed)
+    }
     
-    
-
+    func generatedMemedImage() -> UIImage {
+        
+        // TODO: Hide toolbar and navbar  
+        
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame,
+                                     afterScreenUpdates: true)
+        let memedImage : UIImage =
+            UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // TODO:  Show toolbar and navbar
+        
+        return memedImage
+    }
 }
 
