@@ -38,13 +38,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let topDelefate = TopTextFieldDelegate()
     let bottomDelegate = BottomTextFieldDelegate()
     
+    var savedMeme: Meme!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        topText.text = "TOP"
-        bottomText.text = "BOTTOM"
         
+        if (self.savedMeme != nil) {
+            topText.text = savedMeme.text
+            imagePickerView.image = savedMeme.image
+        }
+        else
+        {
+            topText.text = "TOP"
+            bottomText.text = "BOTTOM"
+        }
         topText.textAlignment = .Center
         bottomText.textAlignment = .Center
         
@@ -152,6 +161,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func save() {
         let meme = Meme(text: topText.text!+bottomText.text!, image: imagePickerView.image!, memedImage: self.generatedMemedImage())
         
+        //aa it to the memes array on th applicationDelegate
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
     
     func generatedMemedImage() -> UIImage
