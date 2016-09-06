@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class MemeCollectionViewController: UICollectionViewController {
+    
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 
     var memes: [Meme]! {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
@@ -17,7 +19,12 @@ class MemeCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(MemeCollectionViewController.presentMemeViewController))
+        let space: CGFloat = 3.0
+        let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }
     
     func testAction(){
@@ -26,6 +33,7 @@ class MemeCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.hidden = false
     }
     
     //CollectionViewController
@@ -35,8 +43,10 @@ class MemeCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeItemCell", forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeItemCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         let meme = memes[indexPath.row]
+        
+        cell.setText(meme.text, bottomText: meme.text)
         
         let imageView = UIImageView(image: meme.image)
         cell.backgroundView = imageView
