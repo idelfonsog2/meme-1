@@ -45,14 +45,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        
+        topText.text = "TOP"
+        bottomText.text = "BOTTOM"
+        
         if (self.savedMeme != nil) {
             topText.text = savedMeme.text
             imagePickerView.image = savedMeme.image
-        }
-        else
-        {
-            topText.text = "TOP"
-            bottomText.text = "BOTTOM"
         }
         topText.textAlignment = .Center
         bottomText.textAlignment = .Center
