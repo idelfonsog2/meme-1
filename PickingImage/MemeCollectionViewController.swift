@@ -35,6 +35,7 @@ class MemeCollectionViewController: UICollectionViewController  {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = false
+        self.collectionView?.reloadData()
     }
     
     //CollectionViewController
@@ -61,7 +62,7 @@ class MemeCollectionViewController: UICollectionViewController  {
 
         controller.savedMeme = self.memes[indexPath.row]
         
-         self.presentViewController(controller, animated: true, completion: nil)
+        navigationController?.pushViewController(controller, animated: true)
         
     }
     

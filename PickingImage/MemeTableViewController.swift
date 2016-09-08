@@ -10,13 +10,20 @@ import UIKit
 
 class MemeTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     var memes: [Meme]! {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(MemeTableViewController.presentMemeCreator))
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,7 +31,7 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell", forIndexPath: indexPath)
         let meme = self.memes[indexPath.row]
         
         cell.imageView?.image = meme.memedImage
@@ -35,7 +42,8 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-        controller.savedMeme = self.memes[indexPath.row]
+        let meme = self.memes[indexPath.row]
+        controller.savedMeme = meme
         
         self.presentViewController(controller, animated: true, completion: nil)
     }
