@@ -246,6 +246,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
+                        <color key="backgroundColor" red="0.55207033720851317" green="1" blue="0.53236416953952914" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="zuC-tW-Oaa" secondAttribute="bottom" id="1tm-iE-R2j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zeZ-L6-U6S" secondAttribute="trailing" id="6h0-W4-LD8"/>

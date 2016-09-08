@@ -79,6 +79,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     {
         cameraButoon.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
         
+        if UIDeviceOrientation.Portrait.isPortrait {
+            print("portrait")
+        }
+        
         self.subscribeToKeyboardNotification()
         
     }
@@ -195,7 +199,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // TODO:  Show toolbar and navbar
         toolBarNav.hidden = false
-        navigationController?.navigationBar.hidden = false
+        navigationBarTool.hidden = false
         
         return memedImage
     }
