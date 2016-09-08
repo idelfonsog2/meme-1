@@ -115,8 +115,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.presentViewController(controller, animated: true, completion: {self.save()})
         
-        if controller.isBeingDismissed() {
-            self.dismissViewControllerAnimated(true, completion: nil)
+        controller.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            print("\(activity), \(success), \(items), \(error)")
+            if success {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
         }
         
     }
