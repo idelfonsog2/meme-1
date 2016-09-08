@@ -62,7 +62,7 @@ class MemeCollectionViewController: UICollectionViewController  {
 
         controller.savedMeme = self.memes[indexPath.row]
         
-        navigationController?.pushViewController(controller, animated: true)
+        self.presentViewController(controller, animated: true, completion: nil)
         
     }
     
