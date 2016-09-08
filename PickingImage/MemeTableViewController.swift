@@ -16,6 +16,7 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Bordered, target: self, action: #selector(MemeTableViewController.presentMemeCreator))
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,6 +36,12 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         controller.savedMeme = self.memes[indexPath.row]
+        
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    func presentMemeCreator() {
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         
         self.presentViewController(controller, animated: true, completion: nil)
     }
