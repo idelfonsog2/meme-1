@@ -79,9 +79,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     {
         cameraButoon.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
         
-        if UIDeviceOrientation.Portrait.isPortrait {
-            print("portrait")
-        }
+        //if UIDeviceOrientation.Portrait.isPortrait {
+            //print("portrait")
+        //}
         
         self.subscribeToKeyboardNotification()
         

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MemeCollectionViewController: UICollectionViewController {
+class MemeCollectionViewController: UICollectionViewController  {
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 
@@ -20,7 +20,7 @@ class MemeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(MemeCollectionViewController.presentMemeViewController))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(MemeCollectionViewController.presentMemeViewController))
         
         let space: CGFloat = 3.0
         let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
@@ -66,7 +66,7 @@ class MemeCollectionViewController: UICollectionViewController {
     }
     
     func presentMemeViewController() {
-        let controller = ViewController()
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         
         self.presentViewController(controller, animated: true, completion: nil)
     }
