@@ -10,8 +10,11 @@ import Foundation
 import UIKit
 
 class BottomTextFieldDelegate: NSObject, UITextFieldDelegate {
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
         textField.resignFirstResponder()
+        textField.textAlignment = .Center
         return true
     }
     

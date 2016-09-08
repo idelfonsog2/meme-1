@@ -16,7 +16,7 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Bordered, target: self, action: #selector(MemeTableViewController.presentMemeCreator))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(MemeTableViewController.presentMemeCreator))
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

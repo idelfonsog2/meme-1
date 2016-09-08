@@ -19,17 +19,18 @@ class MemeCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(MemeCollectionViewController.presentMemeViewController))
+        
         let space: CGFloat = 3.0
         let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
+        
     }
     
-    func testAction(){
-        print("sabve")
-    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

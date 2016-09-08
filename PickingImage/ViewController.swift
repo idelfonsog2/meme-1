@@ -45,7 +45,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+        topText.textAlignment = .Center
+        bottomText.textAlignment = .Center
         
         topText.text = "TOP"
         bottomText.text = "BOTTOM"
@@ -54,8 +55,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             topText.text = savedMeme.text
             imagePickerView.image = savedMeme.image
         }
-        topText.textAlignment = .Center
-        bottomText.textAlignment = .Center
+        
         
         topText.delegate = topDelefate
         bottomText.delegate = bottomDelegate
@@ -80,6 +80,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cameraButoon.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
         
         self.subscribeToKeyboardNotification()
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -109,8 +110,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
         self.presentViewController(controller, animated: true, completion: {self.save()})
+        
+        if controller.isBeingDismissed() {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
     }
     
+    @IBAction func dismissController(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     //ImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -131,11 +140,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /*One can also create custom notifications using postNotificationName:.*/
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomText.isFirstResponder() {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y += getKeyboardHeight(notification)
+        if bottomText.isFirstResponder() {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
     
     func subscribeToKeyboardNotification() {
@@ -163,6 +176,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //aa it to the memes array on th applicationDelegate
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        
     }
     
     func generatedMemedImage() -> UIImage
