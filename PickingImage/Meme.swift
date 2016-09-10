@@ -15,11 +15,6 @@ struct Meme {
     var memedImage: UIImage
     var bottomText: String
     
-    init(text: String, bottomText: String, image: UIImage, memedImage: UIImage){
-        self.text = text
-        self.image = image
-        self.memedImage = memedImage
-        self.bottomText = bottomText
-    }
+// *Do you know that structure types automatically receive a memberwise initializer if they do not define any of their own custom initializers? That means you do not need use the initializer here
     
 }
