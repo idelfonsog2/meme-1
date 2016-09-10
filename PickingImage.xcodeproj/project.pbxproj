@@ -14,7 +14,7 @@
 		6C699D591D6FD307004BD88D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C699D571D6FD307004BD88D /* LaunchScreen.storyboard */; };
 		6C699D641D6FD307004BD88D /* PickingImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C699D631D6FD307004BD88D /* PickingImageTests.swift */; };
 		6C699D6F1D707853004BD88D /* TopTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C699D6E1D707853004BD88D /* TopTextFieldDelegate.swift */; };
-		6C699D711D70793A004BD88D /* BottomTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C699D701D70793A004BD88D /* BottomTextFieldDelegate.swift */; };
+		6CCD68941D83A87C004FAE49 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD68931D83A87C004FAE49 /* Meme.swift */; };
 		6CE94E361D7B4628001D6007 /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE94E351D7B4628001D6007 /* MemeCollectionViewController.swift */; };
 		6CE94E431D7CEDE3001D6007 /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE94E421D7CEDE3001D6007 /* MemeTableViewController.swift */; };
 		6CE94E451D7CF37A001D6007 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE94E441D7CF37A001D6007 /* MemeCollectionViewCell.swift */; };
@@ -42,7 +42,7 @@
 		6C699D631D6FD307004BD88D /* PickingImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickingImageTests.swift; sourceTree = "<group>"; };
 		6C699D651D6FD307004BD88D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C699D6E1D707853004BD88D /* TopTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTextFieldDelegate.swift; sourceTree = "<group>"; };
-		6C699D701D70793A004BD88D /* BottomTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTextFieldDelegate.swift; sourceTree = "<group>"; };
+		6CCD68931D83A87C004FAE49 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		6CE94E351D7B4628001D6007 /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
 		6CE94E421D7CEDE3001D6007 /* MemeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
 		6CE94E441D7CF37A001D6007 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -92,6 +92,7 @@
 				6CE94E421D7CEDE3001D6007 /* MemeTableViewController.swift */,
 				6CE94E351D7B4628001D6007 /* MemeCollectionViewController.swift */,
 				6CE94E441D7CF37A001D6007 /* MemeCollectionViewCell.swift */,
+				6CCD68931D83A87C004FAE49 /* Meme.swift */,
 				6C699D521D6FD307004BD88D /* Main.storyboard */,
 				6CE94E3F1D7CECF4001D6007 /* TextDelegates */,
 				6C699D551D6FD307004BD88D /* Assets.xcassets */,
@@ -114,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				6C699D6E1D707853004BD88D /* TopTextFieldDelegate.swift */,
-				6C699D701D70793A004BD88D /* BottomTextFieldDelegate.swift */,
 			);
 			name = TextDelegates;
 			sourceTree = "<group>";
@@ -223,7 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C699D6F1D707853004BD88D /* TopTextFieldDelegate.swift in Sources */,
-				6C699D711D70793A004BD88D /* BottomTextFieldDelegate.swift in Sources */,
+				6CCD68941D83A87C004FAE49 /* Meme.swift in Sources */,
 				6CE94E361D7B4628001D6007 /* MemeCollectionViewController.swift in Sources */,
 				6CE94E431D7CEDE3001D6007 /* MemeTableViewController.swift in Sources */,
 				6CE94E451D7CF37A001D6007 /* MemeCollectionViewCell.swift in Sources */,

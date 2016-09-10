@@ -11,19 +11,6 @@ import UIKit
  To be a delegate of the UIImagePickerController your View Controller class will also need to conform to the UINavigationControllerDelegate protocol
  */
 
-struct Meme {
-    var text: String
-    var image: UIImage
-    var memedImage: UIImage
-    
-    init(text: String, image: UIImage, memedImage: UIImage){
-        self.text = text
-        self.image = image
-        self.memedImage = memedImage
-    }
-    
-}
-
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -36,17 +23,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButoon: UIBarButtonItem!
     
     let topDelefate = TopTextFieldDelegate()
-    let bottomDelegate = BottomTextFieldDelegate()
+    let bottomDelegate = TopTextFieldDelegate()
     
     var savedMeme: Meme!
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        topText.textAlignment = .Center
-        bottomText.textAlignment = .Center
         
         topText.text = "TOP"
         bottomText.text = "BOTTOM"
@@ -75,16 +58,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomText.defaultTextAttributes = memeTextAttributes
     }
     
-    override func viewWillAppear(animated: Bool)
-    {
+    override func viewWillAppear(animated: Bool) {
+        topText.textAlignment = .Center
+        bottomText.textAlignment = .Center
+        
         cameraButoon.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
-        
-        //if UIDeviceOrientation.Portrait.isPortrait {
-            //print("portrait")
-        //}
-        
         self.subscribeToKeyboardNotification()
-        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -128,6 +107,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func dismissController(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
     //ImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -180,15 +161,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //MememedObject
     func save() {
-        let meme = Meme(text: topText.text!+bottomText.text!, image: imagePickerView.image!, memedImage: self.generatedMemedImage())
+        let meme = Meme(text: topText.text!, bottomText: bottomText.text!, image: imagePickerView.image!, memedImage: self.generatedMemedImage())
         
         //aa it to the memes array on th applicationDelegate
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
         
     }
     
-    func generatedMemedImage() -> UIImage
-    {
+    func generatedMemedImage() -> UIImage {
         // TODO: Hide toolbar and navbar  
         toolBarNav.hidden = true
         navigationBarTool.hidden = true

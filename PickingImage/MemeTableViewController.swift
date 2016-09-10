@@ -34,8 +34,8 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell", forIndexPath: indexPath)
         let meme = self.memes[indexPath.row]
         
-        cell.imageView?.image = meme.memedImage
-        cell.textLabel?.text = meme.text
+        cell.imageView?.image = meme.image
+        cell.textLabel?.text = meme.text + " " + meme.bottomText
         
         return cell
     }
