@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController.swift
 //  PickingImage
 //
 //  Created by Idelfonso Gutierrez Jr. on 8/25/16.
@@ -11,7 +11,7 @@ import UIKit
  To be a delegate of the UIImagePickerController your View Controller class will also need to conform to the UINavigationControllerDelegate protocol
  */
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var topText: UITextField!
@@ -141,9 +141,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func subscribeToKeyboardNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MemeEditorViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MemeEditorViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -161,7 +161,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //MememedObject
     func save() {
-        let meme = Meme(text: topText.text!, bottomText: bottomText.text!, image: imagePickerView.image!, memedImage: self.generatedMemedImage())
+        let meme = Meme(text: topText.text!, image: imagePickerView.image!, memedImage: self.generatedMemedImage(), bottomText: bottomText.text!)
         
         //aa it to the memes array on th applicationDelegate
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)

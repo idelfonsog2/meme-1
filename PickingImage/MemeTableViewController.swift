@@ -41,7 +41,7 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         let meme = self.memes[indexPath.row]
         controller.savedMeme = meme
         
@@ -49,7 +49,7 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func presentMemeCreator() {
-        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         
         self.presentViewController(controller, animated: true, completion: nil)
     }

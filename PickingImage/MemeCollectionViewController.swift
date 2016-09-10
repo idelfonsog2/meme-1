@@ -58,7 +58,7 @@ class MemeCollectionViewController: UICollectionViewController  {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
 
         controller.savedMeme = self.memes[indexPath.row]
         
@@ -67,7 +67,7 @@ class MemeCollectionViewController: UICollectionViewController  {
     }
     
     func presentMemeViewController() {
-        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         
         self.presentViewController(controller, animated: true, completion: nil)
     }
