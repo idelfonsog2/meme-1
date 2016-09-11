@@ -76,18 +76,15 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         self.unsubscribeFromKeyboardNotification()
     }
 
-    @IBAction func pickAnImage(sender: AnyObject) {
+    @IBAction func pickAnImage(sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
-
-    @IBAction func takePhoto(sender: UIBarButtonItem) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .Camera
+        if sender.tag == 3 {
+            imagePicker.sourceType = .PhotoLibrary
+        }
+        else if sender.tag == 2 {
+            imagePicker.sourceType = .Camera
+        }
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
 
@@ -101,7 +98,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         controller.completionWithItemsHandler = {
             (activity, success, items, error) in
-            print("\(activity), \(success), \(items), \(error)")
             if success {
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
@@ -114,7 +110,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     
-    //ImagePickerControllerDelegate
+    //MARK: ImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
@@ -164,7 +160,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    //MememedObject
+    //MARK: MememedObject
     func save() {
         let meme = Meme(text: topText.text!, image: imagePickerView.image!, memedImage: self.generatedMemedImage(), bottomText: bottomText.text!)
         

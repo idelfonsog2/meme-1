@@ -239,14 +239,14 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwt-VO-yIE" userLabel="toolbar">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Album" id="lVn-MS-g6N">
+                                    <barButtonItem tag="3" title="Album" id="lVn-MS-g6N">
                                         <connections>
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="ASV-tj-6F3"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="camera" id="MA5-Zf-yfH">
+                                    <barButtonItem tag="2" systemItem="camera" id="MA5-Zf-yfH">
                                         <connections>
-                                            <action selector="takePhoto:" destination="BYZ-38-t0r" id="taL-Xj-g41"/>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="2DJ-6T-nfh"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
