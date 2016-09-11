@@ -44,7 +44,7 @@
         <scene sceneID="dSq-1X-xAe">
             <objects>
                 <navigationController id="Etc-Bd-yYk" userLabel="Table" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" image="tableView" id="ijw-xx-iWp"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="tableView" id="ijw-xx-iWp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="C0b-gZ-1wK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -64,6 +64,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CbE-Z2-S7Q">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UIh-fe-Ffj">
                             <size key="itemSize" width="129" height="132"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
