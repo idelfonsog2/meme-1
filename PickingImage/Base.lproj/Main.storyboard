@@ -27,7 +27,7 @@
         <scene sceneID="qmI-yn-rZh">
             <objects>
                 <navigationController id="CwL-7E-32V" userLabel="Collection" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" id="zGU-xg-gyR"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="gridView" id="zGU-xg-gyR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VFc-t2-JCO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -44,7 +44,7 @@
         <scene sceneID="dSq-1X-xAe">
             <objects>
                 <navigationController id="Etc-Bd-yYk" userLabel="Table" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" id="ijw-xx-iWp"/>
+                    <tabBarItem key="tabBarItem" image="tableView" id="ijw-xx-iWp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="C0b-gZ-1wK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -299,4 +299,8 @@
             <point key="canvasLocation" x="-848" y="636"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gridView" width="25" height="25"/>
+        <image name="tableView" width="25" height="25"/>
+    </resources>
 </document>

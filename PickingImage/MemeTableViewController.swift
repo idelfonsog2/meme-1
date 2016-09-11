@@ -27,12 +27,14 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
+    //MARK: TableViewDelegate
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell", forIndexPath: indexPath) as UITableViewCell
         let meme = self.memes[indexPath.row]
         
         cell.imageView?.image = meme.image
@@ -48,6 +50,8 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         self.presentViewController(controller, animated: true, completion: nil)
     }
+    
+    //MARK: Custom Func
     
     func presentMemeCreator() {
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
