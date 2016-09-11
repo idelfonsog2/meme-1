@@ -27,6 +27,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     var savedMeme: Meme!
     
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : -2.0 ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -48,14 +54,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         shareButton.enabled = false
         
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : -2.0 ]
-
-        topText.defaultTextAttributes = memeTextAttributes
-        bottomText.defaultTextAttributes = memeTextAttributes
+        
+        configureTextField(topText)
+        configureTextField(bottomText)
+    }
+    
+    func configureTextField(textField: UITextField) {
+        textField.defaultTextAttributes = memeTextAttributes
     }
     
     override func viewWillAppear(animated: Bool) {
