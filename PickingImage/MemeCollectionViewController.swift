@@ -69,6 +69,7 @@ class MemeCollectionViewController: UICollectionViewController  {
     func presentMemeViewController() {
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         
+        //push Meme Detail View
         self.presentViewController(controller, animated: true, completion: nil)
     }
     

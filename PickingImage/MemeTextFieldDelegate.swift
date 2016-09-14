@@ -1,5 +1,5 @@
 //
-//  TopTextFieldDelegate.swift
+//  MemeTextFieldDelegate.swift
 //  PickingImage
 //
 //  Created by Idelfonso Gutierrez Jr. on 8/26/16.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TopTextFieldDelegate: NSObject, UITextFieldDelegate {
+class MemeTextFieldDelegate: NSObject, UITextFieldDelegate {
 
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField.text == "TOP" {

@@ -29,6 +29,10 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //MARK: TableViewDelegate
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
@@ -38,7 +42,8 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let meme = self.memes[indexPath.row]
         
         cell.imageView?.image = meme.image
-        cell.textLabel?.text = meme.text + " " + meme.bottomText
+        cell.textLabel?.text = meme.text
+        cell.detailTextLabel?.text = meme.bottomText
         
         return cell
     }
@@ -51,12 +56,18 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
+   //*Add edit of rows
+    
+    
     //MARK: Custom Func
+    //The "Meme Detail View" needs not to be complicated. A simple view with just an image view as the one property would suffice
     
     func presentMemeCreator() {
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         
-        self.presentViewController(controller, animated: true, completion: nil)
+        
+        
+        presentViewController(controller, animated: true, completion: nil)
     }
     
 }

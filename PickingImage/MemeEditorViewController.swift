@@ -22,8 +22,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var navigationBarTool: UINavigationBar!
     @IBOutlet weak var cameraButoon: UIBarButtonItem!
     
-    let topDelefate = TopTextFieldDelegate()
-    let bottomDelegate = TopTextFieldDelegate()
+    let memeTextDelegate = MemeTextFieldDelegate()
     
     var savedMeme: Meme!
     
@@ -45,21 +44,15 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             imagePickerView.image = savedMeme.image
         }
         
-        
-        topText.delegate = topDelefate
-        bottomText.delegate = bottomDelegate
-        
-        bottomText.layer.zPosition = 1
-        topText.layer.zPosition = 1
-        
         shareButton.enabled = false
-        
         
         configureTextField(topText)
         configureTextField(bottomText)
     }
     
     func configureTextField(textField: UITextField) {
+        textField.delegate = memeTextDelegate
+        textField.layer.zPosition = 1
         textField.defaultTextAttributes = memeTextAttributes
     }
     
@@ -118,11 +111,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             shareButton.enabled = true
         }
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
@@ -132,13 +125,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     /*One can also create custom notifications using postNotificationName:.*/
     func keyboardWillShow(notification: NSNotification) {
         if bottomText.isFirstResponder() {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification) * -1
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if bottomText.isFirstResponder() {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y += 0
         }
     }
     
