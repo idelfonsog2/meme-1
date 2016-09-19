@@ -11,7 +11,7 @@ import UIKit
 
 class MemeTextFieldDelegate: NSObject, UITextFieldDelegate {
 
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "TOP" {
             textField.text = ""
         }
@@ -20,13 +20,13 @@ class MemeTextFieldDelegate: NSObject, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        textField.textAlignment = .Center
+        textField.textAlignment = .center
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text == "" {
             textField.text = "TOP"
         }

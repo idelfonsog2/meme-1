@@ -13,7 +13,7 @@ class MemeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var topTextLabel: UILabel!
     @IBOutlet weak var bottomTextLabel: UILabel!
     
-    func setText(topText: String, bottomText: String) {
+    func setText(_ topText: String, bottomText: String) {
         self.topTextLabel.text = topText
         self.bottomTextLabel.text = bottomText
     }
