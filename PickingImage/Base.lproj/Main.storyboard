@@ -316,12 +316,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9EZ-Xo-8Dm">
-                                <frame key="frameInset" minX="87" minY="304" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9EZ-Xo-8Dm"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9EZ-Xo-8Dm" firstAttribute="leading" secondItem="WED-8L-O7M" secondAttribute="leading" id="9Nf-sP-jAR"/>
+                            <constraint firstAttribute="trailing" secondItem="9EZ-Xo-8Dm" secondAttribute="trailing" id="CVq-at-Vz2"/>
+                            <constraint firstItem="9EZ-Xo-8Dm" firstAttribute="top" secondItem="21d-nU-Azb" secondAttribute="bottom" id="aqT-eh-oPO"/>
+                            <constraint firstItem="2e2-cS-f9I" firstAttribute="top" secondItem="9EZ-Xo-8Dm" secondAttribute="bottom" id="az1-K3-Jdo"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="9EZ-Xo-8Dm" id="YVj-tB-omN"/>
