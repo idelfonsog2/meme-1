@@ -8,7 +8,7 @@ Right here!
 The app is shown with an empty list of collections of memes the user has previously
 share.
 
-Remember the goal is to create a new meme and share it with friends.
+## _Remember the goal is to create a new meme and share it with friends._
 
 #### Go ahead and tap '+'
 
