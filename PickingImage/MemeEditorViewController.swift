@@ -22,6 +22,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var navigationBarTool: UINavigationBar!
     @IBOutlet weak var cameraButoon: UIBarButtonItem!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     let memeTextDelegate = MemeTextFieldDelegate()
     
     var savedMeme: Meme!
@@ -89,16 +91,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         self.present(controller, animated: true, completion: nil)
         
-        controller.completionWithItemsHandler = {
-            (activity, success, items, error) in
-            if success {
-                self.save()
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
-        
     }
     
+    @IBAction func saveMemeBarButton(_ sender: UIBarButtonItem) {
+        self.save()
+    }
+
     @IBAction func dismissController(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
