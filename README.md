@@ -17,7 +17,7 @@ Select a way to capture your image: from albums or camera
 Once the image is selected and you have added some funny joke, shared it via messages
 or other app.
 
-After been share the image is saved and presented back in the list or collection
+After been share you can save the image and it will be  presented back in the list or collection
 controller.
 
 ### Prerequisite
