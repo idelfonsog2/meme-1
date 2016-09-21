@@ -47,6 +47,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         }
         
         shareButton.isEnabled = false
+        saveButton.isEnabled = false
         
         configureTextField(topText)
         configureTextField(bottomText)
@@ -108,6 +109,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
             shareButton.isEnabled = true
+            saveButton.isEnabled = true
         }
         
         dismiss(animated: true, completion: nil)
@@ -124,13 +126,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     /*One can also create custom notifications using postNotificationName:.*/
     func keyboardWillShow(_ notification: Notification) {
         if bottomText.isFirstResponder {
-            view.frame.origin.y -= getKeyboardHeight(notification) * -1
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(_ notification: Notification) {
         if bottomText.isFirstResponder {
-            view.frame.origin.y += 0
+            view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
     
