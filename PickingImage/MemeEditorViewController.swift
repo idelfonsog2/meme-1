@@ -95,6 +95,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func saveMemeBarButton(_ sender: UIBarButtonItem) {
         self.save()
+        dismissController(sender)
     }
 
     @IBAction func dismissController(_ sender: UIBarButtonItem) {
