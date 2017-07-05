@@ -20,6 +20,12 @@ or other app.
 After been share the image is saved and presented back in the list or collection
 controller.
 
+### Launching
+
+1. Clone repo
+2. `pod install`
+3. `open meme-1.xcworkspace`
+
 ### Prerequisite
 
 - Xcode 8.0
